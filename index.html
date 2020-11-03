@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Websites</title>
+
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+  <!-- Fonts awesome-->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <a class="add-new-website" href="/documents" >Add New Website</a>
+  <section id="websites">
+
+    <div class="container-fluid">
+      <table class="table table-hover table-success">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">URL</th>
+            <th scope="col">Category</th>
+            <th scope="col">Comment</th>
+          </tr>
+        </thead>
+        <tbody id="header">
+        </tbody>
+      </table>
+      <div>
+        <table class="table">
+          <tr>
+            <th class="pageinfo" id="currentPageDetails">Page</th>
+            <th>
+              <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-end">
+                  <li class="page-item"><a class="page-link" href="#" id = "begin" onclick="handleClickBegin(event)">&#8678;</a></li>
+                  <li class="page-item"><a class="page-link" href="#" id = "previous" onclick="handleClickPage(event,-1)">Previous</a></li>
+                  <li class="page-item"><a class="page-link" href="#" id = "link1" onclick="handleClickPage(event, 1)">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#" id = "link2" onclick="handleClickPage(event, 2)">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#" id = "link3" onclick="handleClickPage(event, 3)">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#" id = "next" onclick="handleClickPage(event,0)">Next</a></li>
+                  <li class="page-item"><a class="page-link" href="#" id = "end" onclick="handleClickEnd(event)">&#8680;</a></li>
+                </ul>
+              </nav>
+            </th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="website-search">
+    <div class="container-fluid2">
+      <div class="dropdown show">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown link
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" id=dropdown>
+        </div>
+      </div>
+      <table class="table table-hover table-success">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">URL</th>
+            <th scope="col">Category</th>
+            <th scope="col">Comment</th>
+          </tr>
+        </thead>
+        <tbody id="header2">
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  
+
+  <!-- Footer -->
+
+  <footer id="footer">
+    <p>© Copyright 2020 Robert Moss</p>
+
+  </footer>
+
+<script src="js/index.js"></script>
+</body>
+
+</html>
+
+<!-- 
+<a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+-->
