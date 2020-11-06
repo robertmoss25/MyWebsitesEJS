@@ -1,16 +1,25 @@
 {
-  "name": "mywebsitesnode",
+  "name": "mywebsitesejs",
   "version": "1.0.0",
-  "description": "My websites list",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertmoss25/MyWebsitesEJS.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robertmoss25/MyWebsitesEJS/issues"
+  },
+  "homepage": "https://github.com/robertmoss25/MyWebsitesEJS#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "ejs": "^3.1.5",
     "express": "^4.17.1"
   }
 }
