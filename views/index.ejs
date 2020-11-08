@@ -42,22 +42,54 @@
           </tr>
         </thead>
         <tbody id="header">
+          <% 
+          if (results.returnValue !== undefined) {
+            for( var key in results.returnValue ) { 
+            %>
+          <tr>
+            <th scope="row">
+              <a href=<%= results.returnValue[key].url %> target="_blank"><%= results.returnValue[key].url %></a>
+             </th>
+            <td>
+              <%= results.returnValue[key].Category %>
+            </td>
+            <td>
+              <%= results.returnValue[key].Comment %>
+            </td>
+            </tr>
+            <% } 
+          }
+            %>
         </tbody>
       </table>
       <div>
         <table class="table">
           <tr>
-            <th class="pageinfo" id="currentPageDetails">Page</th>
+            <th class="pageinfo" id="currentPageDetails"><%= "Page " + Math.floor(results.value) + " of " + results.totalPages %></th>
             <th>
               <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-end">
-                  <li class="page-item"><a class="page-link" href="#" id = "begin" onclick="handleClickBegin(event)">&#8678;</a></li>
-                  <li class="page-item"><a class="page-link" href="#" id = "previous" onclick="handleClickPage(event,-1)">Previous</a></li>
-                  <li class="page-item"><a class="page-link" href="#" id = "link1" onclick="handleClickPage(event, 1)">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#" id = "link2" onclick="handleClickPage(event, 2)">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#" id = "link3" onclick="handleClickPage(event, 3)">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#" id = "next" onclick="handleClickPage(event,0)">Next</a></li>
-                  <li class="page-item"><a class="page-link" href="#" id = "end" onclick="handleClickEnd(event)">&#8680;</a></li>
+                  <li class="page-item"><a class="page-link" href="/paging?command=begin&value=1" id = "begin">&#8678;</a></li>
+                  <li class="page-item"><a class="page-link" href="/paging?command=previous&value=-1" id = "previous"      
+                    <% 
+                      if (results.currentPos <= 0) { %>
+                        hidden
+                    <% 
+                      }
+                    %>
+                    >Previous</a></li>
+                  <li class="page-item"><a class="page-link" href="/paging?command=link&value=1" id = "link1"  >1</a></li>
+                  <li class="page-item"><a class="page-link" href="/paging?command=link&value=2" id = "link2" >2</a></li>
+                  <li class="page-item"><a class="page-link" href="/paging?command=link&value=3" id = "link3" >3</a></li>
+                  <li class="page-item"><a class="page-link" href="/paging?command=next&value=0" id = "next" 
+                    <% 
+                      if (results.nextHidden) { %>
+                        hidden
+                    <% 
+                      }
+                    %>
+                    >Next</a></li>
+                  <li class="page-item"><a class="page-link" href="/paging?command=end&value=1" id = "end">&#8680;</a></li>
                 </ul>
               </nav>
             </th>
@@ -74,6 +106,9 @@
           Dropdown link
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" id=dropdown>
+          <% for( var key in results.Categories ) { %>
+            <a class="dropdown-item" href="/category?key=<%= key %>" id=<%= key %>><%= results.Categories[key] %></a>
+        <% } %>
         </div>
       </div>
       <table class="table table-hover table-success">
@@ -85,12 +120,28 @@
           </tr>
         </thead>
         <tbody id="header2">
+          <% 
+          if (results.array !== undefined) {
+            for( var key in results.array ) { 
+            %>
+          <tr>
+            <th scope="row">
+              <a href=<%= results.array[key].url %> target="_blank"><%= results.array[key].url %></a>
+             </th>
+            <td>
+              <%= results.array[key].Category %>
+            </td>
+            <td>
+              <%= results.array[key].Comment %>
+            </td>
+            </tr>
+            <% } 
+          }
+            %>
         </tbody>
       </table>
     </div>
   </section>
-
-  
 
   <!-- Footer -->
 
@@ -99,13 +150,7 @@
 
   </footer>
 
-<script src="js/index.js"></script>
 </body>
 
 </html>
 
-<!-- 
-<a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
--->
