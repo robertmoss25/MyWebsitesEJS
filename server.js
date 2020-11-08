@@ -26,9 +26,9 @@ function SetUpResults() {
     results.array = array;
 }
 
-app.get("/", function(req,res) {
-    categoryArray = functions.getCategories(categoryArray, currentPos);
-    results = functions.loadQuestions(itemsPerPage, currentPos);
+app.get("/", async (req,res) => {
+    categoryArray = await functions.getCategories(categoryArray, currentPos);
+    results = await functions.loadQuestions(itemsPerPage, currentPos);
     SetUpResults();
     res.render("index", {results: results});
 });
@@ -48,13 +48,13 @@ app.post("/documents", function(req,res) {
     res.redirect("/");
 });
 
-app.get("/category", function(req,res) {
-    array = functions.loadCategoryQuestions(categoryArray[req.query.key]);
+app.get("/category", async (req,res) => {
+    array = await functions.loadCategoryQuestions(categoryArray[req.query.key]);
     SetUpResults();
     res.render("index", {results: results});
 });
 
-app.get("/paging", function(req,res) {
+app.get("/paging", async (req,res) => {
     let command = req.query.command;
     let item = req.query.value;
 
@@ -75,7 +75,7 @@ app.get("/paging", function(req,res) {
         else
             currentPos = Math.min(totalSize, (Number(itemsPerPage) * (Number(item)-1)));
     }
-    results = functions.loadQuestions(itemsPerPage, currentPos);
+    results = await functions.loadQuestions(itemsPerPage, currentPos);
     SetUpResults();
     res.render("index", {results: results});
 });
